@@ -16,7 +16,7 @@ namespace LaCrosseDental.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text, Name = NameText.Text};
+            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text, Name = NameText.Text, Type = "Patient"};
             IdentityResult result = manager.Create(user, Password.Text);
 
             RoleActions r = new RoleActions();

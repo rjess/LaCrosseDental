@@ -421,6 +421,10 @@
     <Compile Include="Migrations\201704060822450_AddAppointments.Designer.cs">
       <DependentUpon>201704060822450_AddAppointments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704131917453_AddExtraAttributes.cs" />
+    <Compile Include="Migrations\201704131917453_AddExtraAttributes.Designer.cs">
+      <DependentUpon>201704131917453_AddExtraAttributes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -479,6 +483,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704060822450_AddAppointments.resx">
       <DependentUpon>201704060822450_AddAppointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704131917453_AddExtraAttributes.resx">
+      <DependentUpon>201704131917453_AddExtraAttributes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
