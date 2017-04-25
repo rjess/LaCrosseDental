@@ -22,8 +22,6 @@ namespace LaCrosseDental
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            //Database.SetInitializer(new AppointmentDatabaseInitializer());
             
             // add admin user
             Models.ApplicationDbContext context = new ApplicationDbContext();
@@ -53,6 +51,7 @@ namespace LaCrosseDental
             {
                 UserName = "admin@laxdental.com",
                 Email = "admin@laxdental.com",
+                Type = "Admin",
                 Name = "Admin"
             };
             IdUserResult = userMgr.Create(appUser, "Pa$$word1");
@@ -65,10 +64,10 @@ namespace LaCrosseDental
             }
             // Create the roles and users.
             RoleActions roleActions = new RoleActions();
-            roleActions.AddUserAndRole("admin@laxdental.com", "Pa$$word1", "admin", "Admin");
-            roleActions.AddUserAndRole("maryriley@laxdental.com", "Pa$$word1", "user", "Mary Riley");
-            roleActions.AddUserAndRole("danjohnson@laxdental.com", "Pa$$word1", "user", "Dan Johnson");
-            roleActions.AddUserAndRole("ryanjessen@laxdental.com", "Pa$$word1", "patient", "Ryan Jessen");
+            roleActions.AddUserAndRole("admin@laxdental.com", "Pa$$word1", "admin", "Admin", "Admin");
+            roleActions.AddUserAndRole("maryriley@laxdental.com", "Pa$$word1", "user", "Mary Riley", "Hygienist");
+            roleActions.AddUserAndRole("danjohnson@laxdental.com", "Pa$$word1", "user", "Dan Johnson", "Doctor");
+            roleActions.AddUserAndRole("ryanjessen@laxdental.com", "Pa$$word1", "patient", "Ryan Jessen", "Patient");
         }
     }
 }

@@ -12,6 +12,7 @@ namespace LaCrosseDental.Models
     public class ApplicationUser : IdentityUser
     {
         public String Name { get; set; }
+        public String Type { get; set; }
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -32,8 +33,11 @@ namespace LaCrosseDental.Models
         public System.DateTime Time { get; set; }
         public string Type { get; set; }
         public string PatientID { get; set; }
+        public string PatientName { get; set; }
         public string DoctorID { get; set; }
+        public string DoctorName { get; set; }
         public string HygienistID { get; set; }
+        public string HygienistName { get; set; }
         public bool Confirmed { get; set; }
     }
 

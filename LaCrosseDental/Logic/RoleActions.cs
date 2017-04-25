@@ -10,7 +10,7 @@ namespace LaCrosseDental.Logic
 {
     internal class RoleActions
     {
-        internal void AddUserAndRole(String email, String password, String role, String name)
+        internal void AddUserAndRole(String email, String password, String role, String name, String type)
         {
             // Access the application context and create result variables.
             Models.ApplicationDbContext context = new ApplicationDbContext();
@@ -40,7 +40,8 @@ namespace LaCrosseDental.Logic
             {
                 UserName = email,
                 Email = email,
-                Name = name
+                Name = name,
+                Type = type
             };
             IdUserResult = userMgr.Create(appUser, password);
 
