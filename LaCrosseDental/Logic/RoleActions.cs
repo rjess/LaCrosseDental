@@ -45,6 +45,8 @@ namespace LaCrosseDental.Logic
             };
             IdUserResult = userMgr.Create(appUser, password);
 
+            context.SaveChanges();
+            if (!IdUserResult.Succeeded) return;
             // If the new "admin" user was successfully created, 
             // add the "admin" user to the "admin" role. 
             if (!userMgr.IsInRole(userMgr.FindByEmail(email).Id, role))

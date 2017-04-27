@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <div class="checkbox">
-                                <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
+                                <asp:Label runat="server" AssociatedControlID="RememberMe" Width="183px">Remember me?</asp:Label>
                                 <asp:CheckBox runat="server" ID="RememberMe" />
                             </div>
                         </div>
@@ -55,7 +55,6 @@
                 </p>
             </section>
         </div>
-
         <div class="col-md-4">
             <section id="socialLoginForm">
                 <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />

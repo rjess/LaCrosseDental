@@ -10,7 +10,7 @@
     
     <div class="container">
         <ul class="nav nav-pills nav-stacked">
-           <li class="active"><a runat="server" href="#" visible="false" id="ad1">Manage Users</a></li>
+           <li class="active"><a runat="server" href="~/ManageUsers" visible="false" id="ad1">Manage Users</a></li>
            <li class="active"><a runat="server" href="~/ManageAppointments" visible="false" id="ad2">Manage Appointments</a></li>
            <li class="active"><a runat="server" href="~/ViewAppointments" visible="false" id="ad3">View All Appointments</a></li> 
         </ul>
