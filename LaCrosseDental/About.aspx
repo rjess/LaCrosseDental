@@ -8,7 +8,7 @@
     <p><br></p>
     <img src="Welcome.png" alt="Welcome page" style="width:973px;height:730px;">
     <p><br><br></p>
-    <p style="font-size:20px">This is the Home Page that comes up when you first enter this website.  From this page, you can navigate to pages that will help you log in, register, or contact us.<br><br><br></p>
+    <p style="font-size:70px">This is the Home Page that comes up when you first enter this website.  From this page, you can navigate to pages that will help you log in, register, or contact us.<br><br><br></p>
     <img src="WelcomeContact.png" alt="Welcome page contact link" style="width:973px;height:730px;">
     <p><br><br></p>
     <p>You can click on this tab to be directed to the contact page where you will fill out the form to contact us.<br><br><br></p>
