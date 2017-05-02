@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+//This is for the contact page for the La Crosse Dental Application
 namespace LaCrosseDental
 {
     public partial class Contact : Page
