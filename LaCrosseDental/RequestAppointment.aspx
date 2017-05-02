@@ -1,4 +1,5 @@
-﻿<%@ Page Title="Request Appointment" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RequestAppointment.aspx.cs" Inherits="LaCrosseDental.RequestAppointment" %>
+﻿<!--This  is the request appointment page when on the La Crosse Dental Website-->
+<%@ Page Title="Request Appointment" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RequestAppointment.aspx.cs" Inherits="LaCrosseDental.RequestAppointment" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <fieldset>
