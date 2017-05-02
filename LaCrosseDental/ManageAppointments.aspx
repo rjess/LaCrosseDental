@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageAppointments.aspx.cs" Inherits="LaCrosseDental.ManageAppointments" %>
+﻿<!--This  is the manage appointment page when on the La Crosse Dental Website-->
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageAppointments.aspx.cs" Inherits="LaCrosseDental.ManageAppointments" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <fieldset>
     <legend>Approve Appointments</legend>
