@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using LaCrosseDental.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-
+//This is for the default page for the La Crosse Dental Application 
 namespace LaCrosseDental
 {
     public partial class _Default : Page
