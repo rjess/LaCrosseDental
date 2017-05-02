@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+//This is for the about page when on La Crosse Dental
 namespace LaCrosseDental
 {
     public partial class About : Page
