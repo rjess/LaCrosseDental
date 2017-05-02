@@ -32,11 +32,15 @@ namespace LaCrosseDental
 
             // get db context and instantiate new Appointment
             ApplicationDbContext db = new ApplicationDbContext();
+            var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            var user = userMgr.FindById(User.Identity.GetUserId());
+
             Appointment newAppt = new Appointment()
             {
                 AppointmentID = "" + dt.Month + dt.Day + hour,
                 Time = dt,
-                PatientID = User.Identity.GetUserId(),
+                PatientID = user.Id,
+                PatientName = user.Name,
                 Type = apptType.SelectedValue,
                 DoctorID = "",
                 HygienistID = "",

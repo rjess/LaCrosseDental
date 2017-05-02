@@ -29,7 +29,7 @@
                             <tr runat="server">
                                 <td>
                                     <span>
-                                        <%#:Item.PatientID%>
+                                        <b>Patient: </b><%#:Item.PatientName%>
                                     </span>
                                     <span>
                                         <b>Appointment On </b><%#:Item.Time.ToString()%>

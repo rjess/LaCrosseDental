@@ -16,7 +16,7 @@
         </ul>
         <ul class="nav nav-pills nav-stacked">
            <li class="active"><a runat="server" href="~/ViewAppointments" visible="false" id="u1">View Schedule</a></li>
-           <li class="active"><a runat="server" href="#" visible="false" id="u2">Manage Schedule</a></li>
+           <li class="active"><a runat="server" href="~/ManageSchedule" visible="false" id="u2">Manage Schedule</a></li>
            <li class="active"><a runat="server" href="#" visible="false" id="u3">Calendar View</a></li> 
         </ul>
         <ul class="nav nav-pills nav-stacked">

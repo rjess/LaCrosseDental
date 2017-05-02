@@ -215,6 +215,7 @@
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="ManageAppointments.aspx" />
+    <Content Include="ManageSchedule.aspx" />
     <Content Include="ManageUsers.aspx" />
     <Content Include="RequestAppointment.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -409,6 +410,13 @@
     </Compile>
     <Compile Include="ManageAppointments.aspx.designer.cs">
       <DependentUpon>ManageAppointments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSchedule.aspx.cs">
+      <DependentUpon>ManageSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageSchedule.aspx.designer.cs">
+      <DependentUpon>ManageSchedule.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageUsers.aspx.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
