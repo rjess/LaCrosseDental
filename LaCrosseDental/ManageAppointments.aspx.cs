@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using LaCrosseDental.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-
+//This is for manage appointment's for the La Crosse Dental Web Application
 namespace LaCrosseDental
 {
     public partial class ManageAppointments : Page
