@@ -8,7 +8,7 @@ using LaCrosseDental.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity.EntityFramework;
-
+//This is for viewing appointment in the La Crosse Dental web application
 namespace LaCrosseDental
 {
     public partial class ViewAppointments : System.Web.UI.Page
