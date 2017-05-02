@@ -72,6 +72,16 @@
     <img src="ManageAppt.png" alt="manageappt" style="width:973px;height:730px;">
     <p><br><br></p>
     
-    <p style="font-size:30px">This is the page for managing appointments.  To approve an appointment, click on the appointment to approve and assign a doctor and hygienist to the appointment before clicking submit.</p>
-   
+    <p style="font-size:30px">This is the page for managing appointments.  To approve an appointment, click on the appointment to approve and assign a doctor and hygienist to the appointment before clicking submit.<br><br><br><br><br></p>
+    <h3>Manage User Pages</h3>
+    <p><br></p>
+    <img src="ManageEdit.png" alt="edit users page" style="width:973px;height:730px;">
+    <p><br><br></p>
+    <p style="font-size:30px">This is where users can be editted.  After choosing a user to edit, the fields will fill automatically and can be changed.<br><br><br><br><br></p>
+    <img src="ManageCreate.png" alt="create user page" style="width:973px;height:730px;">
+    <p><br><br></p>
+    <p style="font-size:30px">This is where a user can be created.  Fill out all fields before clicking submit.<br><br><br><br><br></p>
+    <img src="ManageDeactivate.png" alt="deactivate user page" style="width:973px;height:730px;">
+    <p><br><br></p>
+    <p style="font-size:30px">This is where a user can be deactivated.  Choose the user to deactivate and then submit.</p>
 </asp:Content>
