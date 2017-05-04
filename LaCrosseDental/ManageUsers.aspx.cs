@@ -12,7 +12,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using LaCrosseDental.Logic;
-
+//This is for managing users for the La Crosse Dental application
 namespace LaCrosseDental
 {
     public partial class ManageUsers : System.Web.UI.Page

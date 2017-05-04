@@ -6,7 +6,7 @@ using System.Web.Routing;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.FriendlyUrls.Resolvers;
-
+//This is for the view switcher aspect of La Crosse Dental's web application
 namespace LaCrosseDental
 {
     public partial class ViewSwitcher : System.Web.UI.UserControl

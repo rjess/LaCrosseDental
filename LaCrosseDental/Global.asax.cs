@@ -11,7 +11,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using LaCrosseDental.Logic;
 using LaCrosseDental.Models;
-
+//This is for the global class for the La Crosse Dental Application
 namespace LaCrosseDental
 {
     public class Global : HttpApplication
