@@ -18,14 +18,20 @@ namespace LaCrosseDental
 
         }
         
+        /*
+         * getAppointments method to populate the listview
+         */
         public IQueryable<Appointment> getAppointments()
         {
             ApplicationDbContext db = new ApplicationDbContext();
 
+            // find the user
             String id = User.Identity.GetUserId();
             var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            // get all appointments
             IQueryable<Appointment> appts = db.Appointments;
 
+            // refine appointments list according to user
             if (userMgr.IsInRole(id, "user"))
             {
                 String name = userMgr.FindById(id).Name;
@@ -35,6 +41,7 @@ namespace LaCrosseDental
             {
                 appts = appts.Where(a => a.PatientID == id);
             }
+            // else if it's the admin, it keeps appts as all appointments
             
             return appts;
         }

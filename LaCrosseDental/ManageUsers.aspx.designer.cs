@@ -31,6 +31,15 @@ namespace LaCrosseDental {
         protected global::System.Web.UI.WebControls.RadioButtonList RadioList;
         
         /// <summary>
+        /// userSelectGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userSelectGroup;
+        
+        /// <summary>
         /// userSelect control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace LaCrosseDental {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList userSelect;
+        
+        /// <summary>
+        /// NameGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NameGroup;
         
         /// <summary>
         /// Name control.
@@ -49,6 +67,15 @@ namespace LaCrosseDental {
         protected global::System.Web.UI.WebControls.TextBox Name;
         
         /// <summary>
+        /// UsernameGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UsernameGroup;
+        
+        /// <summary>
         /// Username control.
         /// </summary>
         /// <remarks>
@@ -56,6 +83,15 @@ namespace LaCrosseDental {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Username;
+        
+        /// <summary>
+        /// PasswordGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PasswordGroup;
         
         /// <summary>
         /// Password control.
@@ -67,6 +103,15 @@ namespace LaCrosseDental {
         protected global::System.Web.UI.WebControls.TextBox Password;
         
         /// <summary>
+        /// EmailGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EmailGroup;
+        
+        /// <summary>
         /// Email control.
         /// </summary>
         /// <remarks>
@@ -74,6 +119,15 @@ namespace LaCrosseDental {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Email;
+        
+        /// <summary>
+        /// UserTypeGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UserTypeGroup;
         
         /// <summary>
         /// UserType control.

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewAppointments.aspx.cs" Inherits="LaCrosseDental.ViewAppointments" %>
+﻿<%@ Page Title="Scheduled Appointments" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewAppointments.aspx.cs" Inherits="LaCrosseDental.ViewAppointments" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <section>
         <div>
@@ -29,26 +29,27 @@
                             <tr runat="server">
                                 <td>
                                     <span>
-                                        <b>Patient: </b><%#:Item.PatientName%>
-                                    </span>
-                                    <span>
-                                        <b>Appointment On </b><%#:Item.Time.ToString()%>
+                                        <b><%#:Item.Type%></b><i>&ensp;on&ensp;</i><%#:Item.Time.ToShortDateString()%><i>&ensp;at&ensp;</i><%#:Item.Time.ToShortTimeString()%>
                                     </span>
                                     <br />
                                     <span>
-                                        <b>Type         : </b><%#:Item.Type%>
+                                        <b>&emsp;| Patient&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&ensp;</b><%#:Item.PatientName%>
                                     </span>
                                     <br />
                                     <span>
-                                        <b>Doctor       : </b><%#:Item.DoctorID%>
+                                        <b>&emsp;| Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&ensp;</b><%#:Item.Type%>
                                     </span>
                                     <br />
                                     <span>
-                                        <b>Hygienist    : </b><%#:Item.HygienistID%>
+                                        <b>&emsp;| Doctor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&ensp;</b><%#:Item.DoctorName%>
                                     </span>
                                     <br />
                                     <span>
-                                        <b>Confirmed    : </b><%#:Item.Confirmed%>
+                                        <b>&emsp;| Hygienist&nbsp;&nbsp;&nbsp;&nbsp;:&ensp;</b><%#:Item.HygienistName%>
+                                    </span>
+                                    <br />
+                                    <span>
+                                        <b>&emsp;| Confirmed&nbsp;&nbsp;:&ensp;</b><%#:Item.Confirmed%>
                                     </span>
                                 </td>
                             </tr>

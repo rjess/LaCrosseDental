@@ -2,13 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <fieldset>
-    <br />
-    <legend>Add Appointment</legend>
+    <legend><br /><b>Add Appointment</b></legend>
     <div class="form-group" runat="server">
       <label for="selectDate" class="col-lg-2 control-label">Select Date</label>
       <div class="col-lg-10">
           <div class="calendarWrapper">
-            <asp:Calendar ID="Calendar1" runat="server" Height="250px" Width="400px" BorderColor="Silver"
+            <asp:Calendar ID="Calendar1" runat="server" Height="330px" Width="500px" BorderColor="Silver"
                 BorderStyle="None" BorderWidth="3" ShowGridLines="true" TitleFormat="MonthYear" 
                 TitleStyle-BackColor="#993366" BackColor="White" DayStyle-BackColor="White"
                  TitleStyle-ForeColor="White" TitleStyle-Font-Bold="true" Font="glyphicons-halflings-regular"
@@ -33,7 +32,7 @@
     <div class="form-group" runat="server">
       <label for="select" class="col-lg-2 control-label">Time of Day</label>
       <div class="col-lg-10">
-        <asp:DropDownList ID="timeOfDay" runat="server" Height="31px" Width="109px" CssClass="form-control">
+        <asp:DropDownList ID="timeOfDay" runat="server" Height="40px" Width="110px" CssClass="form-control">
             <asp:ListItem Value="7">7:00 am</asp:ListItem>
             <asp:ListItem Value="8">8:00 am</asp:ListItem>
             <asp:ListItem Value="9">9:00 am</asp:ListItem>
@@ -50,7 +49,7 @@
     </div>
     <div class="form-group" runat="server">
       <div class="col-lg-10 col-lg-offset-2">
-        <asp:Button runat="server" Text="Cancel" CssClass="btn btn-default"/>
+        <asp:Button runat="server" Text="Cancel" OnClick="Cancel_Click" CssClass="btn btn-default"/>
         <asp:Button runat="server" OnClick="addAppointment" Text="Submit" CssClass="btn btn-primary"/>
       </div>
     </div>

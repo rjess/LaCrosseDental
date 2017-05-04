@@ -18,7 +18,7 @@
                 </asp:RadioButtonList>
             </div>
         </div>
-        <div class="form-group" runat="server">
+        <div class="form-group" runat="server" id="userSelectGroup">
             <label for="select" class="col-lg-2 control-label">Choose User</label>
             <div class="col-lg-10">
                 <asp:DropDownList ID="userSelect" runat="server" CssClass="form-control" OnSelectedIndexChanged="UpdateFields" 
@@ -28,31 +28,31 @@
         </div>
         <br />
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
-        <div class="form-group" runat="server">
+        <div class="form-group" runat="server" ID="NameGroup">
             <asp:Label runat="server" AssociatedControlID="Name" CssClass="col-md-2 control-label">Name</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Name" CssClass="form-control" visible="true"/>
             </div>
         </div>
-        <div class="form-group" runat="server">
+        <div class="form-group" runat="server" ID="UsernameGroup">
             <asp:Label runat="server" AssociatedControlID="Username" CssClass="col-md-2 control-label">Username</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Username" CssClass="form-control" visible="true"/>
             </div>
         </div>
-        <div class="form-group" runat="server">
+        <div class="form-group" runat="server" ID="PasswordGroup">
             <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="Password" CssClass="form-control" TextMode="Password" visible="false"/>
+                <asp:TextBox runat="server" ID="Password" CssClass="form-control" TextMode="Password"/>
             </div>
         </div>
-        <div class="form-group" runat="server">
+        <div class="form-group" runat="server" ID="EmailGroup">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" visible="true"/>
             </div>
         </div>
-        <div class="form-group" runat="server">
+        <div class="form-group" runat="server" ID="UserTypeGroup">
             <asp:Label runat="server" AssociatedControlID="UserType" CssClass="col-md-2 control-label">Type</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="UserType" CssClass="form-control" visible="true"/>
@@ -60,7 +60,8 @@
         </div>
         <div class="form-group" runat="server">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" OnClick="SubmitEdit" Text="Submit" CssClass="btn btn-default" Height="46px" Width="128px" />
+                <asp:Button runat="server" OnClick="SubmitEdit" Text="Submit" CssClass="btn btn-primary" Height="46px" Width="128px" />
+                <asp:Button runat="server" OnClick="Cancel_Click" Text="Cancel" CssClass="btn btn-default" Height="46px" Width="128px" />
             </div>
         </div>
     </div>

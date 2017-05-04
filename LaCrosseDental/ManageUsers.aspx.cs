@@ -19,12 +19,14 @@ namespace LaCrosseDental
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // data table for getting users
             DataTable dt = new DataTable();
 
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
                 con.Open();
 
+                // SQL command to fill dt with all users
                 SqlCommand cmd1 = new SqlCommand("SELECT Id, Name FROM AspNetUsers", con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd1);
                 sda.Fill(dt);
@@ -33,6 +35,7 @@ namespace LaCrosseDental
 
             if (!IsPostBack)
             {
+                // populate userSelect field
                 userSelect.DataSource = dt;
                 userSelect.DataTextField = "Name";
                 userSelect.DataValueField = "Id";
@@ -47,40 +50,42 @@ namespace LaCrosseDental
             string selection = RadioList.SelectedValue;
             if (selection.Equals("Edit User"))
             {
-                userSelect.Visible = true;
-                Name.Visible = true;
-                Username.Visible = true;
-                Email.Visible = true;
-                UserType.Visible = true;
-                Password.Visible = false;
+                userSelectGroup.Visible = true;
+                NameGroup.Visible = true;
+                UsernameGroup.Visible = true;
+                EmailGroup.Visible = true;
+                UserTypeGroup.Visible = true;
+                PasswordGroup.Visible = false;
+                UpdateFields(null, null);
             }
             if (selection.Equals("Create User"))
             {
-                userSelect.Visible = false;
-                Name.Visible = true;
+                userSelectGroup.Visible = false;
+                NameGroup.Visible = true;
                 Name.Text = "";
-                Username.Visible = true;
+                UsernameGroup.Visible = true;
                 Username.Text = "";
-                Email.Visible = true;
+                EmailGroup.Visible = true;
                 Email.Text = "";
-                UserType.Visible = true;
+                UserTypeGroup.Visible = true;
                 UserType.Text = "";
-                Password.Visible = true;
+                PasswordGroup.Visible = true;
                 Password.Text = "";
             }
             if (selection.Equals("Deactivate User"))
             {
-                userSelect.Visible = true;
-                Name.Visible = false;
-                Username.Visible = false;
-                Email.Visible = false;
-                UserType.Visible = false;
-                Password.Visible = false;
+                userSelectGroup.Visible = true;
+                NameGroup.Visible = false;
+                UsernameGroup.Visible = false;
+                EmailGroup.Visible = false;
+                UserTypeGroup.Visible = false;
+                PasswordGroup.Visible = false;
             }
         }
         
         protected void UpdateFields(object sender, EventArgs e)
         {
+            /*Update the data in each field after changing user selection*/
             ApplicationDbContext db = new ApplicationDbContext();
             var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
 
@@ -95,45 +100,72 @@ namespace LaCrosseDental
 
         protected void RadioSelection(object sender, EventArgs e)
         {
+            /*Change which fields are visible according to Radio selection*/
             string selection = RadioList.SelectedValue;
             if(selection.Equals("Edit User"))
             {
                 userSelect.Visible = true;
-                Name.Visible = true;
-                Username.Visible = true;
-                Email.Visible = true;
-                UserType.Visible = true;
-                Password.Visible = false;
+                NameGroup.Visible = true;
+                UsernameGroup.Visible = true;
+                EmailGroup.Visible = true;
+                UserTypeGroup.Visible = true;
+                PasswordGroup.Visible = false;
             }
             if(selection.Equals("Create User"))
             {
                 userSelect.Visible = false;
-                Name.Visible = true;
-                Username.Visible = true;
-                Email.Visible = true;
-                UserType.Visible = true;
-                Password.Visible = true;
+                NameGroup.Visible = true;
+                UsernameGroup.Visible = true;
+                EmailGroup.Visible = true;
+                UserTypeGroup.Visible = true;
+                PasswordGroup.Visible = true;
             }
             if(selection.Equals("Deactivate User"))
             {
                 userSelect.Visible = true;
-                Name.Visible = false;
-                Username.Visible = false;
-                Email.Visible = false;
-                UserType.Visible = false;
-                Password.Visible = false;
+                NameGroup.Visible = false;
+                UsernameGroup.Visible = false;
+                EmailGroup.Visible = false;
+                UserTypeGroup.Visible = false;
+                PasswordGroup.Visible = false;
+            }
+        }
+
+        protected void CreateUser()
+        {
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
+            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text, Name = Name.Text, Type = UserType.Text };
+            IdentityResult result = manager.Create(user, Password.Text);
+
+            string role = "";
+            if (UserType.Text.Equals("Patient")) role = "patient";
+            else if (UserType.Text.Equals("Doctor") || UserType.Text.Equals("Hygienist")) role = "user";
+
+            RoleActions r = new RoleActions();
+            r.AddRole(user, role);
+
+            if (result.Succeeded)
+            {
+                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+            }
+            else
+            {
+                ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
         }
 
         protected void SubmitEdit(object sender, EventArgs e)
         {
+            ApplicationDbContext db = new ApplicationDbContext();
+
             // Grab Radio selection value and execute respective submit
             string selection = RadioList.SelectedValue;
             // Edit User
             if (selection.Equals("Edit User"))
             {
                 // Database and User Manager info and variables
-                ApplicationDbContext db = new ApplicationDbContext();
                 var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
                 String userid = userSelect.SelectedValue;
                 var user = userMgr.FindById(userid);
@@ -148,30 +180,26 @@ namespace LaCrosseDental
             // Create User
             if (selection.Equals("Create User"))
             {
-                // assign new user to a Role
-                string type = UserType.Text;
-                string role = "";
-                // convert type to corresponding role
-                if (type.Equals("Patient")) role = "patient";
-                else if (type.Equals("Doctor") || type.Equals("Hygienist")) role = "user";
-
-                // add user to role
-                RoleActions r = new RoleActions();
-                r.AddUserAndRole(Email.Text, Password.Text, role, Name.Text, UserType.Text);
+                CreateUser();
             }
             if (selection.Equals("Deactivate User"))
             {
                 // Database and User Manager info and variables
-                ApplicationDbContext db = new ApplicationDbContext();
                 var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
                 String userid = userSelect.SelectedValue;
                 var user = userMgr.FindById(userid);
 
                 // lock out user
                 user.LockoutEnabled = true;
+                db.SaveChanges();
             }
 
             // redirect to return url
+            IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+        }
+
+        protected void Cancel_Click(object sender, EventArgs e)
+        {
             IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
         }
     }

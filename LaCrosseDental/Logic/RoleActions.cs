@@ -47,8 +47,8 @@ namespace LaCrosseDental.Logic
 
             context.SaveChanges();
             if (!IdUserResult.Succeeded) return;
-            // If the new "admin" user was successfully created, 
-            // add the "admin" user to the "admin" role. 
+            // If the new user was successfully created, 
+            // add the user to their role. 
             if (!userMgr.IsInRole(userMgr.FindByEmail(email).Id, role))
             {
                 IdUserResult = userMgr.AddToRole(userMgr.FindByEmail(email).Id, role);

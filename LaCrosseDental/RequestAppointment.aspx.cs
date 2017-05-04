@@ -35,9 +35,10 @@ namespace LaCrosseDental
             var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
             var user = userMgr.FindById(User.Identity.GetUserId());
 
+            // Create new Appointment object
             Appointment newAppt = new Appointment()
             {
-                AppointmentID = "" + dt.Month + dt.Day + hour,
+                AppointmentID = "" + dt.Month + dt.Day + hour + user.Id,
                 Time = dt,
                 PatientID = user.Id,
                 PatientName = user.Name,
@@ -47,9 +48,34 @@ namespace LaCrosseDental
                 Confirmed = false
             };
 
-            db.Appointments.Add(newAppt);
-            db.SaveChanges();
-            
+            // Check if exact appointment is already in DB
+            bool exists = false;
+            IQueryable<Appointment> appts = db.Appointments;
+            foreach(Appointment a in appts)
+            {
+                if(a.AppointmentID.Equals(newAppt.AppointmentID))
+                {
+                    exists = true;
+                }
+            }
+
+            // if appointment already exists, pop up message
+            if (exists)
+            {
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(),
+                   "AlertBox", "alert('You are already scheduled for this time!\nPlease select a different time.');", true);
+            }
+            else // else continue
+            {
+                // Add appt, save, and redirect
+                db.Appointments.Add(newAppt);
+                db.SaveChanges();
+                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+            }
+        }
+
+        protected void Cancel_Click(object sender, EventArgs e)
+        {
             IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
         }
 
