@@ -3,8 +3,13 @@
     <section>
         <div>
             <hgroup>
-                <h2><%: Page.Title %></h2>
+                <h2><%: Page.Title %> </h2>
             </hgroup>
+            <div>
+                <label>Search All Appointments: </label>
+                <input id="SearchText" type="text" runat="server"/>
+                <asp:Button ID="SearchButton" runat="server" Text="Search" CssClass="btn btn-primary" height="40px" Width="100px"/>
+            </div>
             <asp:ListView ID="appointmentList" runat="server" 
                 DataKeyNames="AppointmentID" GroupItemCount="1"
                 ItemType="LaCrosseDental.Models.Appointment" SelectMethod="getAppointments">
@@ -29,29 +34,7 @@
                             <tr runat="server">
                                 <td>
                                     <span>
-                                        <b><%#:Item.Type%></b><i>&ensp;on&ensp;</i><%#:Item.Time.ToShortDateString()%><i>&ensp;at&ensp;</i><%#:Item.Time.ToShortTimeString()%>
-                                    </span>
-                                    <br />
-                                    <span>
-                                        <b>&emsp;| Patient&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&ensp;</b><%#:Item.PatientName%>
-                                    </span>
-                                    <br />
-                                    <span>
-                                        <b>&emsp;| Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&ensp;</b><%#:Item.Type%>
-                                    </span>
-                                    <br />
-                                    <span>
-                                        <b>&emsp;| Doctor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&ensp;</b><%#:Item.DoctorName%>
-                                    </span>
-                                    <br />
-                                    <span>
-                                        <b>&emsp;| Hygienist&nbsp;&nbsp;&nbsp;&nbsp;:&ensp;</b><%#:Item.HygienistName%>
-                                    </span>
-                                    <br />
-                                    <span>
-                                        <b>&emsp;| Confirmed&nbsp;&nbsp;:&ensp;</b><%#:Item.Confirmed%>
-                                    </span>
-                                </td>
+                                        <b><%#:Item.Type%></b><i>&ensp;on&ensp;</i><%#:Item.Time.ToShortDateString()%><i>&ensp;at&ensp;</i><%#:Item.Time.ToShortTimeString()%></span><br /><span><b>&emsp;| Patient&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&ensp;</b><%#:Item.PatientName%></span><br /><span><b>&emsp;| Doctor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&ensp;</b><%#:Item.DoctorName%></span><br /><span><b>&emsp;| Hygienist&nbsp;&nbsp;&nbsp;&nbsp;:&ensp;</b><%#:Item.HygienistName%></span><br /><span><b>&emsp;| Confirmed&nbsp;&nbsp;:&ensp;</b><%#:Item.Confirmed%></span></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>

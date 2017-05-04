@@ -133,20 +133,26 @@ namespace LaCrosseDental
 
         protected void CreateUser()
         {
+            ApplicationDbContext db = new ApplicationDbContext();
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
+
+            // create user
             var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text, Name = Name.Text, Type = UserType.Text };
             IdentityResult result = manager.Create(user, Password.Text);
 
+            db.SaveChanges();
+
+            // get role
             string role = "";
             if (UserType.Text.Equals("Patient")) role = "patient";
             else if (UserType.Text.Equals("Doctor") || UserType.Text.Equals("Hygienist")) role = "user";
 
-            RoleActions r = new RoleActions();
-            r.AddRole(user, role);
-
             if (result.Succeeded)
             {
+                RoleActions r = new RoleActions();
+                r.AddRole(user, role);
+
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
@@ -175,6 +181,7 @@ namespace LaCrosseDental
                 user.Email = Email.Text;
                 user.UserName = Username.Text;
                 user.Type = UserType.Text;
+                
                 db.SaveChanges();
             }
             // Create User
@@ -189,8 +196,22 @@ namespace LaCrosseDental
                 String userid = userSelect.SelectedValue;
                 var user = userMgr.FindById(userid);
 
-                // lock out user
-                user.LockoutEnabled = true;
+                // remove appointments the user belongs to
+                IQueryable<Appointment> appts = db.Appointments;
+                appts = appts.Where(a => a.DoctorID == userid || a.HygienistID == userid || a.PatientID == userid);
+                foreach(Appointment a in appts)
+                {
+                    db.Appointments.Remove(a);
+                }
+
+                // delete user
+                db.Users.Remove(user);
+                db.SaveChanges();
+
+                // add the new inactive user
+                user.Type = "Inactive";
+                db.Users.Add(user);
+
                 db.SaveChanges();
             }
 

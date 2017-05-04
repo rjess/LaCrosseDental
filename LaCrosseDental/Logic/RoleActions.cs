@@ -54,14 +54,14 @@ namespace LaCrosseDental.Logic
                 IdUserResult = userMgr.AddToRole(userMgr.FindByEmail(email).Id, role);
             }
         }
-        internal void AddRole( ApplicationUser user, String role )
+        internal void AddRole(ApplicationUser user, String role)
         {
             Models.ApplicationDbContext context = new ApplicationDbContext();
             var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            
-            if (!userMgr.IsInRole(user.Id, role))
+
+            if (!userMgr.IsInRole(userMgr.FindByEmail(user.Email).Id, role))
             {
-                userMgr.AddToRole(user.Id, role);
+                userMgr.AddToRole(userMgr.FindByEmail(user.Email).Id, role);
             }
         }
     }

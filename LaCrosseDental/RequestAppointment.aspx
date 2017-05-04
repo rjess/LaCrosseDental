@@ -1,5 +1,4 @@
-﻿<!--This  is the request appointment page when on the La Crosse Dental Website-->
-<%@ Page Title="Request Appointment" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RequestAppointment.aspx.cs" Inherits="LaCrosseDental.RequestAppointment" %>
+﻿<%@ Page Title="Request Appointment" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RequestAppointment.aspx.cs" Inherits="LaCrosseDental.RequestAppointment" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <fieldset>
@@ -24,7 +23,7 @@
       <div class="col-lg-10">
         <asp:RadioButtonList ID="apptType" runat="server" Height="69px" Width="156px" CssClass="radio">
          <asp:ListItem>Cleaning</asp:ListItem>
-         <asp:ListItem>Tooth Extraction</asp:ListItem>
+         <asp:ListItem>Root Canal</asp:ListItem>
          <asp:ListItem>Cavity Filling</asp:ListItem>
         </asp:RadioButtonList>
         <br>

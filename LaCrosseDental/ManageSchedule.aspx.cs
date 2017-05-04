@@ -15,29 +15,32 @@ namespace LaCrosseDental
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /* Bind User's appointments to the ListBox */
-            ApplicationDbContext context = new ApplicationDbContext();
-            IQueryable<Appointment> appts = context.Appointments;
-            
-            // get user ID
-            String id = User.Identity.GetUserId();
+            if (!IsPostBack)
+            {
+                /* Bind User's appointments to the ListBox */
+                ApplicationDbContext context = new ApplicationDbContext();
+                IQueryable<Appointment> appts = context.Appointments;
 
-            // get the user's appts
-            appts = appts.Where(a => a.DoctorID == id || a.HygienistID == id);
+                // get user ID
+                String id = User.Identity.GetUserId();
 
-            // create new anonymous type for the listbox for each appointment in appts
-            var datasource = from a in appts
-                             select new
-                             {
-                                 ID = a.AppointmentID,
-                                 ApptName = a.PatientName + " @ " + a.Time
-                             };
+                // get the user's appts
+                appts = appts.Where(a => a.DoctorID == id || a.HygienistID == id);
 
-            // Bind data
-            Appointments.DataSource = datasource.ToList();
-            Appointments.DataTextField = "ApptName";
-            Appointments.DataValueField = "ID";
-            Appointments.DataBind();
+                // create new anonymous type for the listbox for each appointment in appts
+                var datasource = from a in appts
+                                 select new
+                                 {
+                                     aID = a.AppointmentID,
+                                     ApptName = a.PatientName + " @ " + a.Time
+                                 };
+
+                // Bind data
+                Appointments.DataSource = datasource.ToList();
+                Appointments.DataTextField = "ApptName";
+                Appointments.DataValueField = "aID";
+                Appointments.DataBind();
+            }
         }
 
         protected void Submit_Click(object sender, EventArgs e)

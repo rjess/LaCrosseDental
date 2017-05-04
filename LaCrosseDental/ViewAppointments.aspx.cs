@@ -35,7 +35,7 @@ namespace LaCrosseDental
             if (userMgr.IsInRole(id, "user"))
             {
                 String name = userMgr.FindById(id).Name;
-                appts = appts.Where(a => a.DoctorID == name || a.HygienistID == name);
+                appts = appts.Where(a => a.DoctorName == name || a.HygienistName == name);
             }
             else if (userMgr.IsInRole(id, "patient"))
             {

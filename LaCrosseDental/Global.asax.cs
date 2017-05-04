@@ -67,7 +67,11 @@ namespace LaCrosseDental
             roleActions.AddUserAndRole("admin@laxdental.com", "Pa$$word1", "admin", "Admin", "Admin");
             roleActions.AddUserAndRole("maryriley@laxdental.com", "Pa$$word1", "user", "Mary Riley", "Hygienist");
             roleActions.AddUserAndRole("danjohnson@laxdental.com", "Pa$$word1", "user", "Dan Johnson", "Doctor");
+            roleActions.AddUserAndRole("annianderson@laxdental.com", "Pa$$word1", "patient", "Anni Anderson", "Patient");
+            roleActions.AddUserAndRole("keywayne@laxdental.com", "Pa$$word1", "user", "Key Wayne", "Hygienist");
+            roleActions.AddUserAndRole("timflood@laxdental.com", "Pa$$word1", "user", "Tim Flood", "Doctor");
             roleActions.AddUserAndRole("ryanjessen@laxdental.com", "Pa$$word1", "patient", "Ryan Jessen", "Patient");
+            roleActions.AddUserAndRole("janedoe@laxdental.com", "Pa$$word1", "patient", "Jane Doe", "Patient");
         }
     }
 }

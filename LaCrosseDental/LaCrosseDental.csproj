@@ -216,7 +216,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="ManageAppointments.aspx" />
     <Content Include="ManageSchedule.aspx" />
-    <Content Include="ManageUsers.aspx" />
+    <Content Include="Account\ManageUsers.aspx" />
     <Content Include="RequestAppointment.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -418,11 +418,11 @@
     <Compile Include="ManageSchedule.aspx.designer.cs">
       <DependentUpon>ManageSchedule.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ManageUsers.aspx.cs">
+    <Compile Include="Account\ManageUsers.aspx.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ManageUsers.aspx.designer.cs">
+    <Compile Include="Account\ManageUsers.aspx.designer.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201704060035249_InitialCreate.cs" />

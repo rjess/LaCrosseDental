@@ -96,7 +96,15 @@ namespace LaCrosseDental
             IQueryable<Appointment> appts = context.Appointments;
             appts = appts.Where(a => a.AppointmentID == apptId);
             Appointment ap;
-            ap = appts.First();
+
+            try
+            {
+                ap = appts.First();
+            }
+            catch (Exception)
+            {
+                return;
+            }
 
             // get Appointment date time
             DateTime apptDT = ap.Time;
@@ -137,8 +145,14 @@ namespace LaCrosseDental
             IQueryable<Appointment> appts = context.Appointments;
             appts = appts.Where(a => a.AppointmentID == apptId);
             Appointment ap;
-            ap = appts.First();
-
+            try
+            {
+                ap = appts.First();
+            }
+            catch(Exception)
+            {
+                return;
+            }
             // get Appointment date time
             DateTime apptDT = ap.Time;
 
