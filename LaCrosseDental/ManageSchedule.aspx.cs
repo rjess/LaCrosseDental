@@ -51,9 +51,17 @@ namespace LaCrosseDental
 
             // find appointment
             var appt = context.Appointments.Where(a => a.AppointmentID == apptId);
+            var appointment = appt.First();
+
+            // find the patient belonging to the appointment
+            var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            string uid = appointment.PatientID;
+            userMgr.SendEmail(uid, "La Crosse Dental Appointment Change", "Your appointment with " 
+                + appointment.DoctorName + " on " + appointment.Time.ToString() + " has been " +
+                "cancelled, please reschedule at laxdental.com");
 
             // remove the appointment, save, then redirect
-            context.Appointments.Remove(appt.First());
+            context.Appointments.Remove(appointment);
             context.SaveChanges();
 
             IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);

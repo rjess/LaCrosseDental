@@ -13,9 +13,20 @@ namespace LaCrosseDental
 {
     public partial class ViewAppointments : System.Web.UI.Page
     {
+        bool search;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack)
+            {
+                search = true;
+                SearchResults.Visible = true;
+                appointmentList.Visible = false;
+            } else
+            {
+                search = false;
+                SearchResults.Visible = false;
+                appointmentList.Visible = true;
+            }
         }
         
         /*
@@ -42,8 +53,34 @@ namespace LaCrosseDental
                 appts = appts.Where(a => a.PatientID == id);
             }
             // else if it's the admin, it keeps appts as all appointments
-            
+
             return appts;
+            
+        }
+
+        public IQueryable<Appointment> searchAppointments()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+
+            // find the user
+            String name = SearchText.Value;
+
+            // get all appointments
+            IQueryable<Appointment> appts = db.Appointments;
+
+            if (!name.Equals(""))
+            {
+                // refine appointments list according to user
+                appts = appts.Where(a => a.DoctorName == name || a.HygienistName == name || a.PatientName == name);
+            }
+
+            return appts;
+        }
+
+        protected void SearchButton_Click(object sender, EventArgs e)
+        {
+            search = true;
+            appointmentList.Dispose();
         }
     }
 }

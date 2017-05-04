@@ -70,7 +70,7 @@ namespace LaCrosseDental
             roleActions.AddUserAndRole("annianderson@laxdental.com", "Pa$$word1", "patient", "Anni Anderson", "Patient");
             roleActions.AddUserAndRole("keywayne@laxdental.com", "Pa$$word1", "user", "Key Wayne", "Hygienist");
             roleActions.AddUserAndRole("timflood@laxdental.com", "Pa$$word1", "user", "Tim Flood", "Doctor");
-            roleActions.AddUserAndRole("ryanjessen@laxdental.com", "Pa$$word1", "patient", "Ryan Jessen", "Patient");
+            roleActions.AddUserAndRole("jessen.ryan@uwlax.edu", "Pa$$word1", "patient", "Ryan Jessen", "Patient");
             roleActions.AddUserAndRole("janedoe@laxdental.com", "Pa$$word1", "patient", "Jane Doe", "Patient");
         }
     }
